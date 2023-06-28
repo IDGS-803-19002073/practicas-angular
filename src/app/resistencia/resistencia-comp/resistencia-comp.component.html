@@ -1,0 +1,98 @@
+<h2 class="text-center mt-4">Calcular Resistencias</h2>
+
+<div class="d-flex justify-content-center">
+  <img src="https://www.electrontools.com/Home/WP/wp-content/uploads/2019/04/esistencia-de-4-bandas.jpg" alt="..." class="img-thumbnail">
+</div>
+
+<div class="row d-flex justify-content-center mt-3">
+  <div class="col-3">
+    <label for="banda1">Banda 1:</label>
+    <select class="form-select" id="banda1" [(ngModel)]="banda1" name="banda1" form="carform">
+      <option value="1" selected>Negro</option>
+      <option value="2">Cafe</option>
+      <option value="3">Rojo</option>
+      <option value="4">Naranja</option>
+      <option value="5">Amarillo</option>
+      <option value="6">Verde</option>
+      <option value="7">Azul</option>
+      <option value="8">Violeta</option>
+      <option value="9">Gris</option>
+      <option value="10">Blanco</option>
+    </select>
+  </div>
+
+  <div class="col-3">
+    <label for="banda2">Banda 2:</label>
+    <select class="form-select" id="banda2" [(ngModel)]="banda2" name="banda2" form="carform">
+      <option value="1" selected>Negro</option>
+      <option value="2">Cafe</option>
+      <option value="3">Rojo</option>
+      <option value="4">Naranja</option>
+      <option value="5">Amarillo</option>
+      <option value="6">Verde</option>
+      <option value="7">Azul</option>
+      <option value="8">Violeta</option>
+      <option value="9">Gris</option>
+      <option value="10">Blanco</option>
+    </select>
+  </div>
+
+  <div class="col-3">
+    <label for="banda3">Banda 3:</label>
+    <select class="form-select" id="banda3" [(ngModel)]="banda3" name="banda3" form="carform">
+      <option value="1" selected>Negro</option>
+      <option value="2">Cafe</option>
+      <option value="3">Rojo</option>
+      <option value="4">Naranja</option>
+      <option value="5">Amarillo</option>
+      <option value="6">Verde</option>
+      <option value="7">Azul</option>
+      <option value="8">Violeta</option>
+      <option value="9">Gris</option>
+      <option value="10">Blanco</option>
+    </select>
+  </div>
+</div>
+
+<div class="d-flex justify-content-center mt-3">
+  <h5 >Elige la tolerancia</h5>
+
+  <div class="form-check" *ngFor="let op of select">
+    <input class="form-check-input" type="radio" name="opciones" [(ngModel)]="selected" [value]="op">
+    <label class="form-check-label" for="opciones">
+      {{ op }}
+    </label>
+  </div>
+  </div>
+  <div class="row">
+    <div class="col-12 d-flex justify-content-center">
+      <button (click)="calcularResistencia()" class="btn btn-primary">Calcular</button>
+    </div>
+  </div>
+<table class="table ">
+    <thead>
+      <tr>
+        <th scope="col">Banda 1</th>
+        <th scope="col">Banda 2</th>
+        <th scope="col">Banda 3</th>
+        <th scope="col">Tolerancia</th>
+        <th scope="col">Valor</th>
+        <th scope="col">Valor Mínimo</th>
+        <th scope="col">Valor Máximo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td [style.backgroundColor]="banda1_en" [ngClass]="{ 'text-white': banda1_en !== 'white', 'text-black': banda1_en === 'white' }">{{ valor1 }}</td>
+        <td [style.backgroundColor]="banda2_en" [ngClass]="{ 'text-white': banda2_en !== 'white', 'text-black': banda2_en === 'white' }">{{ valor2 }}</td>
+        <td [style.backgroundColor]="banda3_en" [ngClass]="{ 'text-white': banda3_en !== 'white', 'text-black': banda3_en === 'white' }">{{ valor3 }}</td>
+        <td [style.backgroundColor]="tolerancia_en" [ngClass]="{ 'text-white': tolerancia_en !== 'white', 'text-black': tolerancia_en === 'white' }">{{ tolerancia_valor }}</td>
+
+        <td>{{ valor }}</td>
+        <td>{{ valor_minimo }}</td>
+        <td>{{ valor_maximo }}</td>
+      </tr>
+    </tbody>
+  </table>
+  
+

@@ -1,0 +1,23 @@
+<div class="contenedor">
+    <mat-form-field>
+        <input matInput type="text" [(ngModel)]="nombre" placeholder="Nombre">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="number" [(ngModel)]="cantidadCompradores" placeholder="cantidad Compradores">
+    </mat-form-field>
+    <mat-radio-group name="opciones" [(ngModel)]="selected">
+        <mat-radio-button *ngFor="let op of select" name="opciones"
+            [value]="op" style="margin: 10px;">
+            {{op}}
+        </mat-radio-button>
+
+    </mat-radio-group>
+    <mat-form-field>
+        <input matInput type="number" [(ngModel)]="cantidadBoletos" placeholder="Cantidad Boletos">
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" (click)="validar()">Procesar</button>
+    <h1><p>Valor a pagar: {{valorDescuento}} </p></h1>
+    <p> comprado por:{{nombre}}</p>
+    <p>cantidad comprada:{{cantidadBoletos}}</p>
+</div>
